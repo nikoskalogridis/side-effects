@@ -6,9 +6,13 @@ class CountMonitor extends Component {
     this.state = {
       counter: 0
     };
-    props.subscribe(count => {
+    this.unsubscribe = props.subscribe(count => {
       this.setState({ counter: count });
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {
