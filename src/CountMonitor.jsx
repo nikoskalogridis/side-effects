@@ -14,27 +14,6 @@ class CountMonitor extends Component {
   render() {
     return <div>Count is {this.state.counter}</div>;
   }
-
-  // componentWillUnmount() {
-  //   this.unsubscribe();
-  // }
-
-  // subscribe = () => {
-  //   if (this.unsubscribe) {
-  //     this.unsubscribe();
-  //   }
-  //   this.unsubscribe = this.props.subscribe(this.countCallback);
-  // };
-
-  // componentDidMount() {
-  //   this.subscribe();
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.subscribe !== this.props.subscribe) {
-  //     this.subscribe();
-  //   }
-  // }
 }
 
 export default CountMonitor;
