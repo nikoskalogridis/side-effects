@@ -8,14 +8,27 @@ class CountMonitor extends Component {
     };
   }
 
-  componentDidMount() {
+  subscribe = () => {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+    }
     this.unsubscribe = this.props.subscribe(count => {
       this.setState({ counter: count });
     });
+  };
+
+  componentDidMount() {
+    this.subscribe();
   }
 
   componentWillUnmount() {
     this.unsubscribe();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.subscribe !== this.props.subscribe) {
+      this.subscribe();
+    }
   }
 
   render() {
